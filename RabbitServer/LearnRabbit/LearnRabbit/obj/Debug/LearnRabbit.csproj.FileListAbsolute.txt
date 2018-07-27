@@ -1,0 +1,10 @@
+D:\code\net\RabbitServer\LearnRabbit\LearnRabbit\bin\Debug\LearnRabbit.exe.config
+D:\code\net\RabbitServer\LearnRabbit\LearnRabbit\bin\Debug\LearnRabbit.exe
+D:\code\net\RabbitServer\LearnRabbit\LearnRabbit\bin\Debug\LearnRabbit.pdb
+D:\code\net\RabbitServer\LearnRabbit\LearnRabbit\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.dll
+D:\code\net\RabbitServer\LearnRabbit\LearnRabbit\bin\Debug\RabbitMQ.Client.dll
+D:\code\net\RabbitServer\LearnRabbit\LearnRabbit\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.xml
+D:\code\net\RabbitServer\LearnRabbit\LearnRabbit\bin\Debug\RabbitMQ.Client.xml
+D:\code\net\RabbitServer\LearnRabbit\LearnRabbit\obj\Debug\LearnRabbit.csprojResolveAssemblyReference.cache
+D:\code\net\RabbitServer\LearnRabbit\LearnRabbit\obj\Debug\LearnRabbit.exe
+D:\code\net\RabbitServer\LearnRabbit\LearnRabbit\obj\Debug\LearnRabbit.pdb

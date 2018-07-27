@@ -1,0 +1,9 @@
+D:\code\net\RabbitServer\LearnRabbit\TRabbitClient\bin\Debug\TRabbitClient.exe.config
+D:\code\net\RabbitServer\LearnRabbit\TRabbitClient\bin\Debug\TRabbitClient.exe
+D:\code\net\RabbitServer\LearnRabbit\TRabbitClient\bin\Debug\TRabbitClient.pdb
+D:\code\net\RabbitServer\LearnRabbit\TRabbitClient\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.dll
+D:\code\net\RabbitServer\LearnRabbit\TRabbitClient\bin\Debug\RabbitMQ.Client.dll
+D:\code\net\RabbitServer\LearnRabbit\TRabbitClient\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.xml
+D:\code\net\RabbitServer\LearnRabbit\TRabbitClient\bin\Debug\RabbitMQ.Client.xml
+D:\code\net\RabbitServer\LearnRabbit\TRabbitClient\obj\Debug\TRabbitClient.exe
+D:\code\net\RabbitServer\LearnRabbit\TRabbitClient\obj\Debug\TRabbitClient.pdb
