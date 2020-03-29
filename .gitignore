@@ -9,3 +9,4 @@
 *.json
 /RabbitServer/LearnRabbit/.vs/LearnRabbit/v16/Server/sqlite3
 /RabbitServer/LearnRabbit/.vs/LearnRabbit/v16/.suo
+/.vs/myLearnPlan/config/applicationhost.config

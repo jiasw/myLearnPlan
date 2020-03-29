@@ -1,134 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学习VUE</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <title>生成课程表</title>
 </head>
+
 <body>
-    <div id="app">
-    <div>
-        {{ message }}
-    </div>
-        <div>
-            <input type="text" v-model.trim="message">
-        </div>
-        <div>
-            <todo-item v-for=" item in groceryList"
-            v-bind:todotest="item" v-bind:aa="item.id" v-bing:key="item.id">
-            <template v-slot:header>
-                <span>Here might be a page title</span>
-              </template>
-              <template v-slot:footer>
-                <span>Here might be a page footer</span>
-              </template>
-        </todo-item>
-        </div>
-        <div v-html="titlehtml"></div>
-        <div>
-            <form>
-                <input type="username" placeholder="用户名"/>
-                <input type="submit" v-on:[eventname] ="doss" value="提交时间"/>
-               
-            </form>
-            <div :style="{ fontSize: postFontSize + 'em' }">
-                <button-counter></button-counter>
-               
-                <blog-post v-on:bigtext="onEnlargeText" v-for="item in blogs" v-bind:title="item"
-                v-bind:key="item.id"></blog-post>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">科目信息 </h5>
+                        <div class="form-group row">
+                            <label class="col-form-label col-md-4">科目名称</label>
+                            <input type="text" class="form-control col-md-8" placeholder="请输入，例如：语文">
+                        </div>
+                        <div class="form-group row">
+                            <div class="col"><button type="button" class="btn btn-info">添加科目</button></div>
+                        </div>
+                        <div class="form-group">
+                            <span class="badge badge-pill badge-success">语文</span>
+                            <span class="badge badge-pill badge-success">数学</span>
+                            <span class="badge badge-pill badge-success">英语</span>
+                            <span class="badge badge-pill badge-success">体育</span>
+                            <span class="badge badge-pill badge-success">英语</span>
+                            <span class="badge badge-pill badge-success">自习</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <custom-check v-model="lovingVue"></custom-check>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">课程安排 </h5>
+                        <div class="form-group">
+                            <label>每周上课天数</label>
+                            <input type="number" class="form-control" placeholder="请输入每周上课天数，一般为五天">
+                        </div>
+                        <div class="form-group">
+                            <label>每天课程数量；小学：5，中学：9</label>
+                            <input type="number" class="form-control" placeholder="请输入每天课程数量">
+                        </div>
+                        <div class="form-group">
+                            <label>班级数量</label>
+                            <input type="number" class="form-control" placeholder="请输入每天课程数量">
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div>
-               <label>
-                   todotest111
-                   <input type="text" value="22">
-               </label>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">课程信息 </h5>
+                        <div class="form-group row">
+                            <label for="exampleInputEmail1 " class="col-form-label col-md-3">课程名称</label>
+                            <input type="text" class="form-control col-md-8" placeholder="请输入课程名称"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group row">
+                            <label for="exampleInputPassword1" class="col-form-label col-md-3">任课教师</label>
+                            <input type="text" class="form-control  col-md-8" placeholder="请输入教师名称">
+                        </div>
+                        <div class="form-group row">
+                            <label for="exampleInputPassword1" class="col-form-label col-md-3">课程数量</label>
+                            <input type="number" class="form-control col-md-8" placeholder="请输入当前课程每周的节数">
+                        </div>
+                        <div class="form-group  row">
+                            <label class="col-form-label col-md-3">代课班级</label>
+                            <select id="inputState" class="form-control col-md-8">
+
+                            </select>
+                        </div>
+                        <div class="form-group  row">
+                            <div class="col"><button type="button" class="btn btn-info">添加</button></div>
+                            
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="row">
+            <h4>课程汇总</h4>
+            <table class="table table-striped table-hover table-sm ">
+                <thead>
+                    <tr>
+                        <th scope="col">班级</th>
+                        <th scope="col">语文</th>
+                        <th scope="col">数学</th>
+                        <th scope="col">合计</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>@7</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>7</td>
+                        <td>6</td>
+                        <td>9</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <div class="col"><button type="button" class="btn btn-primary btn-lg btn-block">开始生成课程表</button></div>
+
+        </div>
+        <div>
+           <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">班级课程</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">教师任课表</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="row">
+        <div class="col-3">
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"> <a class="nav-link show" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="false">Home</a> <a class="nav-link show active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">Profile</a> <a class="nav-link show" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> <a class="nav-link show" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> </div>
+        </div>
+        <div class="col-9">
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+              <p>Cillum ad ut irure tempor velit nostrud occaecat ullamco aliqua anim Lorem sint. Veniam sint duis incididunt do esse magna mollit excepteur laborum qui. Id id reprehenderit sit est eu aliqua occaecat quis et velit excepteur laborum mollit dolore eiusmod. Ipsum dolor in occaecat commodo et voluptate minim reprehenderit mollit pariatur. Deserunt non laborum enim et cillum eu deserunt excepteur ea incididunt minim occaecat.</p>
+            </div>
+            <div class="tab-pane fade active show" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+              <p>Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum velit id veniam. Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint minim consectetur qui.</p>
+            </div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+              <p>Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit nostrud magna nulla. Velit et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur.</p>
+            </div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+              <p>Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum duis aliqua do. Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo eiusmod.</p>
+            </div>
+          </div>
         </div>
       </div>
-      
-</body>
-<script>
-     Vue.component('todo-item',{
-        props:['todotest','aa'],
-        template:`<div><h1>{{todotest.text}}</h1><h2>{{aa}}</h2>
-        
-        <slot name="header"></slot>
-        <slot name="footer"></slot>
-        </div>`
-     });
-     Vue.component('blog-post', {
-  props: ['title'],
-  template: `<div><h3>{{ title.text }}-{{title.largefont}}</h3><button v-on:click="$emit('bigtext',title.largefont)">
-        Enlarge text
-      </button><div v-html="title.content1"> </div></div>`
-})
 
-     Vue.component('button-counter', {
-  data: function () {
-    return {
-      count: 0
-    }
-  },
-  methods:{
-    test:function(e,i){
-        console.log(e);
-        console.log(i);
-    }
-  },
-  template: `<button @:click="test">You clicked me {{ count }} times.</button>`
-});
 
-Vue.component('custom-check',{
-    model:{
-        prop:'mychecked',
-        event:'change'
-    },
-    props:{
-        mychecked:Boolean
-    },
-    template:`<div><input type="checkbox" v-bind:checked="mychecked"
-    v-on:change="$emit('change',$event.target.checked)"
-     /><label>{{mychecked?'选择':'未选择'}}</label></div>`
-
-});
-    var app = new Vue({
-        el: '#app',
-        data: {
-          message: 'Hello Vue!  ',
-          titlehtml:'<h1>Learn vue</h1>',
-          eventname:"click",
-          postFontSize: 1,
-          lovingVue:false,
-          groceryList: [
-      { id: 3, text: '蔬菜111111' },
-      { id: 1, text: '奶酪' },
-      { id: 2, text: '随便其它什么人吃的东西' }
-    ],
-    blogs:[
-    { id: 3, text: '蔬菜2',content1:'<div>内容1</div>',largefont:0.1 },
-        { id: 4, text: '蔬菜3',content1:'<div>内容2</div>',largefont:0.2 },
-            { id: 5, text: '蔬菜4',content1:'<div>内容3</div>',largefont:0.3 },
-    ],
-        },
-        methods:{
-            onEnlargeText: function (enlargeAmount) {
-                this.blogs=this.blogs.reverse();
-    this.postFontSize += enlargeAmount
-  },
-            doss:function(event){
-                event.preventDefault();
-                console.log(event);
-            },
-            test:function(){
-                app.$destroy();
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">教师课表</div>
+  
+</div>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '.container',
+            data: {
+                //课程列表
+                subject:['语文','数学','英语','作文','自然','音乐','体育','自习'],
+                //课程安排
+                schedule:{
+                    days:5,//每周上课天数
+                    subjectcount:5,//每天上课数量
+                    classcount:1//班级数量
+                },
+                
             }
-        }
-      });
-     
-</script>
+        });
+
+
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+</body>
+
 </html>
