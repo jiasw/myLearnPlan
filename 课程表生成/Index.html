@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习VUE</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+    <div>
+        {{ message }}
+    </div>
+        <div>
+            <input type="text" v-model.trim="message">
+        </div>
+        <div>
+            <todo-item v-for=" item in groceryList"
+            v-bind:todotest="item" v-bind:aa="item.id" v-bing:key="item.id">
+            <template v-slot:header>
+                <span>Here might be a page title</span>
+              </template>
+              <template v-slot:footer>
+                <span>Here might be a page footer</span>
+              </template>
+        </todo-item>
+        </div>
+        <div v-html="titlehtml"></div>
+        <div>
+            <form>
+                <input type="username" placeholder="用户名"/>
+                <input type="submit" v-on:[eventname] ="doss" value="提交时间"/>
+               
+            </form>
+            <div :style="{ fontSize: postFontSize + 'em' }">
+                <button-counter></button-counter>
+               
+                <blog-post v-on:bigtext="onEnlargeText" v-for="item in blogs" v-bind:title="item"
+                v-bind:key="item.id"></blog-post>
+            </div>
+            <div>
+                <custom-check v-model="lovingVue"></custom-check>
+            </div>
+
+            <div>
+               <label>
+                   todotest111
+                   <input type="text" value="22">
+               </label>
+            </div>
+        </div>
+      </div>
+      
+</body>
+<script>
+     Vue.component('todo-item',{
+        props:['todotest','aa'],
+        template:`<div><h1>{{todotest.text}}</h1><h2>{{aa}}</h2>
+        
+        <slot name="header"></slot>
+        <slot name="footer"></slot>
+        </div>`
+     });
+     Vue.component('blog-post', {
+  props: ['title'],
+  template: `<div><h3>{{ title.text }}-{{title.largefont}}</h3><button v-on:click="$emit('bigtext',title.largefont)">
+        Enlarge text
+      </button><div v-html="title.content1"> </div></div>`
+})
+
+     Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  methods:{
+    test:function(e,i){
+        console.log(e);
+        console.log(i);
+    }
+  },
+  template: `<button @:click="test">You clicked me {{ count }} times.</button>`
+});
+
+Vue.component('custom-check',{
+    model:{
+        prop:'mychecked',
+        event:'change'
+    },
+    props:{
+        mychecked:Boolean
+    },
+    template:`<div><input type="checkbox" v-bind:checked="mychecked"
+    v-on:change="$emit('change',$event.target.checked)"
+     /><label>{{mychecked?'选择':'未选择'}}</label></div>`
+
+});
+    var app = new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue!  ',
+          titlehtml:'<h1>Learn vue</h1>',
+          eventname:"click",
+          postFontSize: 1,
+          lovingVue:false,
+          groceryList: [
+      { id: 3, text: '蔬菜111111' },
+      { id: 1, text: '奶酪' },
+      { id: 2, text: '随便其它什么人吃的东西' }
+    ],
+    blogs:[
+    { id: 3, text: '蔬菜2',content1:'<div>内容1</div>',largefont:0.1 },
+        { id: 4, text: '蔬菜3',content1:'<div>内容2</div>',largefont:0.2 },
+            { id: 5, text: '蔬菜4',content1:'<div>内容3</div>',largefont:0.3 },
+    ],
+        },
+        methods:{
+            onEnlargeText: function (enlargeAmount) {
+                this.blogs=this.blogs.reverse();
+    this.postFontSize += enlargeAmount
+  },
+            doss:function(event){
+                event.preventDefault();
+                console.log(event);
+            },
+            test:function(){
+                app.$destroy();
+            }
+        }
+      });
+     
+</script>
+</html>
